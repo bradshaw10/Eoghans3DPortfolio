@@ -71,10 +71,14 @@ const moon = new THREE.Mesh(
     map: moonTexture,
     normalMap: normalTexture
   })
-)
+);
+scene.add(moon);
 
 moon.position.z = 30;
 moon.position.setX(-10);
+
+retail.position.z = -5;
+retail.position.x = 2;
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
@@ -90,8 +94,8 @@ function moveCamera(){
   camera.position.y = t * -0.0002;
 }
 document.body.onscroll = moveCamera
+moveCamera();
 
-scene.add(moon);
 
 function animate(){
   requestAnimationFrame(animate);
@@ -101,7 +105,9 @@ function animate(){
   torus.rotation.z += 0.01;
 
 
-  controls.update();
+  moon.rotation.x += 0.005;
+
+  //controls.update();
 
   renderer.render(scene, camera);
 }
