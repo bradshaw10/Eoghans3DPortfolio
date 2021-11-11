@@ -1,4 +1,4 @@
-import './style.css';
+import './styles.scss';
 import * as THREE from 'three' 
 import { OrbitControls } from 'three-orbitcontrols-ts'
 const scene = new THREE.Scene();
