@@ -40,7 +40,7 @@ function addStar(){
   const material = new THREE.MeshStandardMaterial({ color: 0xFF6347 });
   const star = new THREE.Mesh(geomatry, material);
 
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(200));
 
   star.position.set(x, y, z);
   scene.add(star);
@@ -50,7 +50,7 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load('/assets/space.jpg');
 scene.background = spaceTexture;
 
-const retailTexture = new THREE.TextureLoader().load('/assets/retail.jpg');
+const retailTexture = new THREE.TextureLoader().load('/assets/me.jpg');
 
 const retail = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
@@ -58,6 +58,26 @@ const retail = new THREE.Mesh(
 );
 
 scene.add(retail);
+
+const itbTexture = new THREE.TextureLoader().load('/assets/itb.jpg');
+
+const itb = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial({map: itbTexture})
+);
+
+scene.add(itb);
+
+const queensTexture = new THREE.TextureLoader().load('/assets/queens.jpg');
+
+const queens = new THREE.Mesh(
+  new THREE.BoxGeometry(3,3,3),
+  new THREE.MeshBasicMaterial({map: queensTexture})
+);
+
+scene.add(queens);
+
+
 
 const moonTexture = new THREE.TextureLoader().load('/assets/moon.jpg')
 const normalTexture = new THREE.TextureLoader().load('/assets/normal.jpg')
@@ -71,11 +91,17 @@ const moon = new THREE.Mesh(
 );
 scene.add(moon);
 
-moon.position.z = 30;
+moon.position.z = 25;
 moon.position.setX(-10);
-
+moon.position.y = 5;
 retail.position.z = -5;
 retail.position.x = 2;
+
+itb.position.z = 15;
+itb.position.x = 5;
+
+queens.position.z = 40;
+queens.position.x = 15;
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
@@ -85,6 +111,12 @@ function moveCamera(){
 
   retail.rotation.z += 0.01;
   retail.rotation.z += 0.01;
+
+  itb.rotation.z += 0.01;
+  itb.rotation.z += 0.01;
+
+  queens.rotation.z += 0.01;
+  queens.rotation.z += 0.01;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
