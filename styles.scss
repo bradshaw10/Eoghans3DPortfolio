@@ -3,6 +3,42 @@ canvas {
     top: 0;
     left: 0;
   }
+
+  // path,
+  // line {
+  //     background-color: wheat;
+  //   fill: none;
+  //   stroke: #2a3745;
+  //   stroke-width: 2;
+  //   stroke-linecap: round;
+  //   stroke-linejoin: round;
+  //   stroke-miterlimit: 10;
+  //   stroke-dashoffset: 0;
+  // }
+
+  // .stroke-I {
+  //   stroke-dasharray: 10424.3369140625;
+  //   animation: write1 3s infinite linear;
+
+  // }
+  
+ 
+  
+  // @keyframes write1 {
+  //   0% {
+  //       stroke-dashoffset: 10424.3369140625;
+  //   }
+  //   100% {
+  //       stroke-dashoffset: 0;
+  //   }
+//}
+
+.signature{
+  background-color: white;
+  color: black;
+}
+
+
   
  
   :root {

@@ -35,6 +35,9 @@ scene.add(pointLight, ambientLight);
 
 const controls = new OrbitControls(camera, renderer.domElement)
 
+// var mySignature = document.getElementById('signature');
+
+
 function addStar(){
   const geomatry = new THREE.SphereGeometry(0.25, 24, 24);
   const material = new THREE.MeshStandardMaterial({ color: 0xFF6347 });
