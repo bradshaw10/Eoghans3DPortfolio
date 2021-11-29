@@ -82,7 +82,7 @@ scene.add(queens);
 
 
 
-const moonTexture = new THREE.TextureLoader().load('/assets/moon.jpg')
+const moonTexture = new THREE.TextureLoader().load('/assets/moon2.jpg')
 const normalTexture = new THREE.TextureLoader().load('/assets/normal.jpg')
 
 const moon = new THREE.Mesh(
