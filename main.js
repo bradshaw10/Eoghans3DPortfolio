@@ -1,6 +1,7 @@
 import './styles.scss';
 import * as THREE from 'three' 
 import { OrbitControls } from 'three-orbitcontrols-ts'
+
 const scene = new THREE.Scene();
 
 //will show all with these settings
@@ -94,23 +95,77 @@ const moon = new THREE.Mesh(
 );
 scene.add(moon);
 
+const earthTexture = new THREE.TextureLoader().load('/assets/earth.jpg');
+const earth = new THREE.Mesh(
+  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.MeshStandardMaterial({
+    map: earthTexture,
+    normalMap: normalTexture
+  })
+);;
+scene.add(earth);
+
+const sunTexture = new THREE.TextureLoader().load('/assets/sun2.jpg');
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(12, 120, 120),
+  new THREE.MeshStandardMaterial({
+    map: sunTexture,
+    normalMap: normalTexture
+  })
+);;
+scene.add(sun);
+
+const marsTexture = new THREE.TextureLoader().load('/assets/mars2.png');
+const mars = new THREE.Mesh(
+  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.MeshStandardMaterial({
+    map: marsTexture,
+    normalMap: normalTexture
+  })
+);;
+scene.add(mars);
+
+const marsMaterial = new THREE.MeshStandardMaterial({ color: 0xbdb76b });
+
+const marsGeomatry = new THREE.TorusGeometry(10, 1, 10, 200);
+const Marstorus = new THREE.Mesh(marsGeomatry, marsMaterial);
+scene.add(Marstorus);
+
 moon.position.z = 25;
-moon.position.setX(-10);
-moon.position.y = 5;
+moon.position.setX(-20);
+moon.position.y = 10;
+
+
+earth.position.z = -25;
+earth.position.setX(-10);
+earth.position.y = 10;
+
+sun.position.z = -100;
+sun.position.setX(20);
+sun.position.y = -20;
+
+mars.position.z = 0;
+mars.position.setX(50);
+mars.position.y = 30;
+
+Marstorus.position.z = 0;
+Marstorus.position.setX(50);
+Marstorus.position.y = 30;
+
 retail.position.z = -5;
 retail.position.x = 2;
 
-itb.position.z = 15;
-itb.position.x = 5;
+itb.position.z = 20;
+itb.position.x = -5;
 
-queens.position.z = 40;
-queens.position.x = 15;
+queens.position.z = 30;
+queens.position.x = 10;
 
 function moveCamera(){
   const t = document.body.getBoundingClientRect().top;
-  moon.rotation.x += 0.05;
-  moon.rotation.y += 0.075;
-  moon.rotation.z += 0.05;
+  // moon.rotation.x += 0.05;
+  // moon.rotation.y += 0.075;
+  // moon.rotation.z += 0.05;
 
   retail.rotation.z += 0.01;
   retail.rotation.z += 0.01;
@@ -136,8 +191,14 @@ function animate(){
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
 
+  Marstorus.rotation.y += 0.02;
+  Marstorus.rotation.x += 0.02;
 
   moon.rotation.x += 0.005;
+  earth.rotation.y += 0.020;
+  sun.rotation.x += 0.05;
+  sun.rotation.y += 0.05;
+  mars.rotation.z += 0.03; 
 
   //controls.update();
 
