@@ -1,6 +1,7 @@
 import './styles.scss';
 import * as THREE from 'three' 
 import { OrbitControls } from 'three-orbitcontrols-ts'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 
 const scene = new THREE.Scene();
 
@@ -35,6 +36,20 @@ scene.add(pointLight, ambientLight);
 
 
 const controls = new OrbitControls(camera, renderer.domElement)
+
+controls.keys = {
+	LEFT: 'ArrowLeft', //left arrow
+	UP: 'ArrowUp', // up arrow
+	RIGHT: 'ArrowRight', // right arrow
+	BOTTOM: 'ArrowDown' // down arrow
+}
+
+window.addEventListener("keydown", function(e) {
+  if(["Space","ArrowUp","ArrowDown","ArrowLeft","ArrowRight"].indexOf(e.code) > -1) {
+      e.preventDefault();
+  }
+}, false);
+
 
 // var mySignature = document.getElementById('signature');
 
